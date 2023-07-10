@@ -1,0 +1,72 @@
+
+class Library:
+    def __init__(self):
+        self._books = []
+
+    def add_book(self, new_book):
+        self._books.append(new_book)
+
+    def display_books(self):
+        if self._books:  
+            print("The books we have made available in our library are:\n")
+            for book in self._books:
+                print(book)
+        else:
+            print("Sorry, we have no books available in the library at the moment")
+
+    def lend_book(self, requested_book):
+        if requested_book in self._books:
+            print("You have now borrowed \"%s\" " % requested_book)
+            self._books.remove(requested_book)
+
+        else:
+            print("Sorry, \"%s\" is not there in our library at the moment" % requested_book)
+class Library:
+    def __init__(self):
+        self._books = []
+
+    def add_book(self, new_book):
+        self._books.append(new_book)
+
+    def display_books(self):
+        if self._books: 
+            print("The books we have made available in our library are:\n")
+            for book in self._books:
+                print(book)
+        else:
+            print("Sorry, we have no books available in the library at the moment")
+
+    def lend_book(self, requested_book):
+        if requested_book in self._books:
+            print("You have now borrowed \"%s\" " % requested_book)
+            self._books.remove(requested_book)
+
+        else:
+            print("Sorry, \"%s\" is not there in our library at the moment" % requested_book)
+
+class StudentDatabase:
+    def __init__(self):
+        self._books = {}
+
+    def get_student(self, name):
+        if name not in self._books:
+            return "Not Found"
+
+        return self._books[name]
+
+    def borrow_book(self, name, book):
+        if name not in self._books:
+            self._books[name] = list(book)
+        else:
+            self._books[name].append(book)
+
+    def return_book(self, name, book):
+        if book not in self._books[name]:
+            print("You don't seem to have borrowed \"%s\"" % book)
+        else:
+            self._books[name].remove(book)
+
+    def display_students_with_books(self):
+        for name, books in self._books.items():
+            if books:
+                print("%s: %s" % (name, books))
