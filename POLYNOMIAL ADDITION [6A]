@@ -1,0 +1,4 @@
+from numpy.polynomial import polynomial as Poly
+x = (0, 35, 25, 12)
+y = (10, 65, 23, 34)
+print(Poly.polyadd(x,y))
